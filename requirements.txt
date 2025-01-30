@@ -1,0 +1,6 @@
+#Dependencias
+
+selenium==4.8.0
+webdriver-manager==3.8.5
+urllib3==1.26.6
+
