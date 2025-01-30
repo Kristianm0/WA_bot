@@ -113,16 +113,23 @@ def main():
             mensaje = f"Titulo oferta de Kimba {i}"
             print(f"\nProcesando contacto {i}/{len(contactos)}: {contacto_formateado}")
             
+            #Medir el tiempo tottal
+            star_time = time.time()
             success, message = send_whatsapp_message(driver, contacto_formateado, mensaje)
             
+            end_time = time.time()
+            elapsed_time = end_time - star_time
             if success:
                 print(f"✅ {message}")
             else:
                 print(f"❌ {message}")
                 print("Continuando con el siguiente contacto...")
-            
+
+            print(f"Tiempo de envío del mensaje: {elapsed_time:.2f} segundos")
+
             # Pequeña pausa entre mensajes
-            time.sleep(3)
+            time.sleep(random.randint(5, 15))
+
     
     except Exception as e:
         print(f"\n❌ Error general: {str(e)}")
